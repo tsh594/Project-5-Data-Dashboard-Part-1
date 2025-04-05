@@ -4,7 +4,7 @@ Submitted by: **Tasneem Shabana**
 
 This web app provides a comprehensive weather monitoring dashboard with global city data, real-time filtering, and dynamic background imagery.
 
-Time spent: **X** hours spent in total
+Time spent: **8** hours spent in total
 
 ## Features
 
