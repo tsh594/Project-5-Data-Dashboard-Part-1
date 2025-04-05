@@ -1,53 +1,51 @@
-# Weather Dashboard 🌦️
+# Web Development Project 5 - Weather Dashboard
 
 Submitted by: **Tasneem Shabana**
 
-This web app provides a comprehensive weather monitoring dashboard with global city data, real-time filtering, and dynamic background imagery.
+This web app: **A responsive weather dashboard displaying global weather data with interactive filtering and dynamic backgrounds**
 
 Time spent: **8** hours spent in total
 
-## Features
+## Required Features
 
-### Required Features
+The following **required** functionality is completed:
 
 - [x] **The site has a dashboard displaying a list of data fetched using an API call**
-  - Displays 10+ global cities (London, New York, Tokyo, etc.)
-  - Each row shows temperature, humidity, wind speed, and conditions
+  - The dashboard should display at least 10 unique items, one per row (10 default locations)
+  - The dashboard includes at least two features in each row (Temperature, Humidity, Wind, Conditions)
 - [x] **`useEffect` React hook and `async`/`await` are used**
-  - Used in `fetchAllWeather`, `fetchWeather`, and suggestion fetching
-- [x] **The app dashboard includes at least three summary statistics about the data**
-  - Average Temperature
-  - Minimum Temperature
-  - Maximum Temperature
-  - Total Locations Displayed
+  - Used in fetchAllWeather, fetchWeather, and suggestion fetching
+- [x] **The app dashboard includes at least three summary statistics about the data** 
+  - The app dashboard includes at least three summary statistics about the data, such as:
+    - Average Temperature
+    - Minimum Temperature
+    - Maximum Temperature
+    - Total Locations Displayed
 - [x] **A search bar allows the user to search for an item in the fetched data**
-  - Live city search with suggestions
-  - Dynamic filtering as users type
+  - The search bar **correctly** filters items in the list, only displaying items matching the search query
+  - The list of results dynamically updates as the user types into the search bar
 - [x] **An additional filter allows the user to restrict displayed items by specified categories**
-  - Temperature range (-20°C to 50°C)
-  - Wind speed threshold (0-20 m/s)
-  - Weather conditions (Clear, Clouds, Rain, Snow)
+  - The filter restricts items in the list using a **different attribute** than the search bar 
+  - The filter **correctly** filters items in the list, only displaying items matching the filter attribute in the dashboard
+  - The dashboard list dynamically updates as the user adjusts the filter
 
-### Optional Features
+The following **optional** features are implemented:
 
-- [x] Multiple filters can be applied simultaneously
+- [x] Multiple filters can be applied simultaneously (Temp + Wind + Conditions)
 - [x] Filters use different input types
-  - Range sliders for temperature and wind
+  - Range sliders for temperature and wind speed
   - Checkboxes for weather conditions
 - [x] The user can enter specific bounds for filter values
-  - Custom temperature range bounds
-  - Precise wind speed selection
+  - Temperature range from -20°C to 50°C
+  - Wind speed from 0-20 m/s
 
-### Additional Features
+The following **additional** features are implemented:
 
-- [x] Dynamic background images based on location continent
-- [x] Hourly and 5-day forecast displays
-- [x] Error handling and loading states
-- [x] Responsive design for all screen sizes
-- [x] Interactive weather condition icons
-
-## Video Walkthrough
-
+* [x] Dynamic background images based on location continent
+* [x] Hourly and 5-day forecast displays
+* [x] Interactive weather icons for different conditions
+* [x] Responsive design for all screen sizes
+* [x] Loading states and error handling
 
 ## Video Walkthrough
 
@@ -62,29 +60,14 @@ GIF created with ...
 [ScreenToGif](https://www.screentogif.com/) for Windows
 [peek](https://github.com/phw/peek) for Linux. -->
 
-## Technical Implementation
+## Notes
 
-**Key Components:**
-- Fetches data from OpenWeatherMap API (weather + forecasts)
-- Uses Unsplash API for dynamic background images
-- Implements Pexels as fallback image source
-- React hooks for state management (useState, useEffect, useRef)
-- Async/await for API calls
-- Debounced search suggestions
-
-**Filter Logic:**
-```javascript
-const filteredData = weatherData.filter(data => {
-  const matchesSearch = data.name.toLowerCase().includes(searchQuery.toLowerCase());
-  const matchesTemp = data.main.temp >= filters.tempRange[0] && 
-                     data.main.temp <= filters.tempRange[1];
-  const matchesWind = data.wind.speed >= filters.windSpeed;
-  const matchesConditions = filters.conditions.length === 0 || 
-                           filters.conditions.includes(data.weather[0].main);
-  
-  return matchesSearch && matchesTemp && matchesWind && matchesConditions;
-});
-
+**Challenges encountered:**
+1. Managing multiple API calls (OpenWeatherMap, Unsplash, Pexels)
+2. Synchronizing complex filter states
+3. Implementing responsive design for weather cards
+4. Handling API rate limits and errors
+5. Optimizing background image loading performance
 
 ## License
 
